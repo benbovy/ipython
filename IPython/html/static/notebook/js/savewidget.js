@@ -112,6 +112,7 @@ var IPython = (function (IPython) {
     SaveWidget.prototype.update_notebook_name = function () {
         var nbname = IPython.notebook.get_notebook_name();
         this.element.find('span#notebook_name').html(nbname);
+        $([IPython.events]).trigger('notebook_name_updated.SaveWidget');
     };
 
 

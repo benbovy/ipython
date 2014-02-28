@@ -133,6 +133,8 @@ var IPython = (function (IPython) {
                 this.add_shutdown_button(item,kernel);
             }
         };
+
+        $([IPython.events]).trigger('list_loaded.NotebookList');
     };
 
 
@@ -271,6 +273,7 @@ var IPython = (function (IPython) {
                     success : function (data, status, xhr) {
                         that.add_link(data, nbname, item);
                         that.add_delete_button(item);
+                        $([IPython.events]).trigger('file_uploaded.NotebookList');
                     }
                 };
 
